@@ -25,4 +25,12 @@ class Solution(object):
   :type s: str
   :rtype: int
   """
-        
+
+# Optimized solution:
+
+#for i in range(0,strLen):
+# if(i+1 < strLen and dic[s[i]] < dic[s[i+1]]):
+#  val -= dic[s[i]];
+# else:
+#  val += dic[s[i]];
+#return val;
