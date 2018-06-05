@@ -6,23 +6,24 @@ What is the maximum total sum that the height of the buildings can be increased?
 class Solution {
     public int maxIncreaseKeepingSkyline(int[][] grid) {
         int[][] newGrid = new int[grid.length][grid[0].length];
-        
+        int sum = 0;
         for(int i = 0; i < grid.length; i++){
             for(int j = 0;j < grid[0].length; j++){
                
                int maxRow = maxInRow(grid[i]);
                int maxColumn = maxInColumn(grid,j);
-               // if(maxRow < maxColumn){
-               //     newGrid[i][j] = maxRow;
-               // }else{
-               //     newGrid[i][j] = maxColumn;
-               // }
-               newGrid[i][j] = (maxRow < maxColumn)? maxRow : maxColumn;
-               System.out.print(newGrid[i][j]);
+               if(maxRow < maxColumn){
+                   newGrid[i][j] = maxRow;
+               }else{
+                   newGrid[i][j] = maxColumn;
+               }
+               // newGrid[i][j] = (maxRow < maxColumn)? maxRow : maxColumn;
+               sum += (newGrid[i][j] - grid[i][j]);
+               //System.out.print(newGrid[i][j]);
             }
-             System.out.println();
+             //System.out.println();
         }
-        return 0;
+        return sum;
     }
     
     // Return the max number in an array.
